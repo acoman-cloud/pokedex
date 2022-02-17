@@ -16,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #37889c;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,4 +45,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+.pokemon{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+.pokemon-title{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

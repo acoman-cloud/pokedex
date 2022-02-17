@@ -1,46 +1,35 @@
 import './App.css';
 import React from 'react';
-import axios from 'axios';
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import List from './components/List';
+import Pokemon from './components/Pokemon';
+import Home from './components/Home';
+import GenThree from './components/GenThree';
 
-class App extends React.Component {
-  constructor() {
-        super();
-        this.state = {
-          kanto: [],
-          pic: '',
-          pokeID: '',
-        }
-    }
+function App() {
 
-
-  componentWillMount() {
-    axios.get(`https://pokeapi.co/api/v2/pokedex/2/`)
-      .then(esp=>{
-        console.log(esp.data.pokemon_entries)
-        this.setState({
-          ...this.state,
-          kanto: esp.data.pokemon_entries,
-          });
-      })
-      .catch(err=>{
-        console.error(err);
-      });
-  }
-
-  render(){
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
-        <h1>Pokedex</h1>
+        <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/list'>National</Link>
+        </li>
+      </ul>
       </header>
-      <div className='cards'>
-        {this.state.kanto.map(poke=>{
-          return <div className='card'><img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.entry_number}.png`} alt={poke.pokemon_species.name} /><p>{poke.pokemon_species.name.toUpperCase()}</p></div>
-        })}
-      </div>
     </div>
+    <Switch>
+      <Route path="/pokemon" component={Pokemon} />
+      <Route path="/list" component={List} />
+      <Route path="/gen3" component={GenThree} />
+      <Route path="/" component={Home} />
+    </Switch>
+    </Router>
   );
-  }
 }
 
 export default App;
