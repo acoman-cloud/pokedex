@@ -12,12 +12,13 @@ function App() {
     <Router>
     <div className="App">
       <header className="App-header">
+        <h1>Pokedex</h1>
         <ul>
         <li>
           <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/list'>National</Link>
+          <Link to='/list' onClick={localStorage.setItem('gen', 0)}>National</Link>
         </li>
       </ul>
       </header>

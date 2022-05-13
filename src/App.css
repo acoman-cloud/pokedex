@@ -1,32 +1,24 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #47A9D7;
   color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #37889c;
+  background-color: #8ECAE6;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header a:hover{
+  color: white;
+
 }
+
 .cards{
   display:flex;
   flex-flow: row wrap;
