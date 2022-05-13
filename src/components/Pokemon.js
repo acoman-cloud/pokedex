@@ -43,17 +43,6 @@ const Pokemon = (props) => {
 			if (!pokemon.abilities[i].is_hidden) { ability.push(pokemon.abilities[i].ability.name) };
 		}
 	}
-	if (isLoading) {
-		for (let i = 0; i < pokemon.moves.length; i++) {
-			// if ((pokemon.moves[i].version_group_details.filter(version => version === gen)).length) {
-			// 	continue;
-			// }
-			if (pokemon.moves[i].version_group_details[0].move_learn_method.name !== 'level-up') {
-				continue;
-			}
-			levelMoves.push(pokemon.moves[i].move.name)
-		}
-	}
 
 	return (
 		<>
@@ -61,7 +50,13 @@ const Pokemon = (props) => {
 				<div className='pokemon-title'>
 					<h2>{pokemon.name.toUpperCase()}<br /> National Dex № {pokemon.id}</h2>
 					<div>
-						{isLoading && <img src={pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']} width='100%' alt={pokemon.name} />}
+						{isLoading && <img src={
+							
+							pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] == null 
+								? pokemon['sprites']['versions']['generation-viii']['icons']['front_default']
+								: pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+							
+						} width='200%' alt={pokemon.name} style={{textContent: 'center'}}/> /* look into centering stuff later */}
 					</div>
 				</div>
 				<div className='pokemon'>
@@ -102,19 +97,27 @@ const Pokemon = (props) => {
 						<p>Weight: {pokemon.weight / 10} kg</p>
 					</div>}
 				</div>
+				<div>
+					Moves Learned at Level Up:
+					{isLoading && <div>
+						{pokemon.moves.map((item, index) => {
+							if (item.version_group_details[0].move_learn_method.name === 'level-up') {
+								return <div>
+									<div>{item.move.name[0].toUpperCase() + item.move.name.slice(1)} learned at: lvl {item.version_group_details[0].level_learned_at}</div>
+
+
+								</div>
+							} else return null
+						})}
+					</div>}
+				</div>
+
+
 				<div> Sprites: </div>
 				<div>
 					{isLoading && <img src={pokemon.sprites.front_default} alt={pokemon.name} />}
 					{isLoading && <img src={pokemon.sprites.back_default} alt={pokemon.name} />}
 					{isLoading && <img src={pokemon.sprites.front_shiny} alt={'Shiny ' + pokemon.name} />}
-				</div>
-				<div>
-					Moves Learned at Level Up:
-					{isLoading && <div>
-						{levelMoves.map((mov, index) => {
-							return <div>{mov}</div>
-						})}
-					</div>}
 				</div>
 			</div>
 		</>

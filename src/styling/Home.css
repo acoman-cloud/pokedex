@@ -1,0 +1,19 @@
+button{
+  width: 200px;
+	height: 60px;
+	border-radius: 25px;
+	margin: 5px;
+	font-size: 1.6rem;
+}
+
+.nav{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+button:hover{
+	background-color: black;
+	color: white;
+}
