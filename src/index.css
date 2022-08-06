@@ -16,8 +16,9 @@ code {
 html, body, #root {
     margin: 0px;
     height: 100%;
-    background: #eeeeee;
+    background: #1c1e22;
     font-family: Lato;
+    color: white;
 }
 
 label {

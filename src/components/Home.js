@@ -2,43 +2,45 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styling/Home.css'
 
+// pokedex 6 is plat, 7 = remake johto, 8 = black
+
 export default function Home(){
 	const history = useHistory();
 
-	const routeToGenOne =()=>{
+	const routeToNational =()=>{
 		localStorage.setItem('gen', 1)
 		history.push('/list');
 	}
-	const routeToGenTwo =()=>{
+	const routeToGenOne =()=>{
 		localStorage.setItem('gen', 2)
 		history.push('/list');
 	}
-	const routeToGenThree =()=>{
+	const routeToGenTwo =()=>{
 		localStorage.setItem('gen', 3)
 		history.push('/list');
 	}
-	const routeToGenFour =()=>{
+	const routeToGenThree =()=>{
 		localStorage.setItem('gen', 4)
 		history.push('/list');
 	}
-	const routeToGenFive =()=>{
+	const routeToGenFour =()=>{
 		localStorage.setItem('gen', 5)
 		history.push('/list');
 	}
-	const routeToGenSix =()=>{
-		localStorage.setItem('gen', 6)
-		history.push('/list');
-	}
-	const routeToGenSeven =()=>{
-		localStorage.setItem('gen', 7)
-		history.push('/list');
-	}
-	const routeToGenEight =()=>{
+	const routeToGenFive =()=>{
 		localStorage.setItem('gen', 8)
 		history.push('/list');
 	}
-	const routeToNational =()=>{
-		localStorage.setItem('gen', 0)
+	const routeToGenSix =()=>{
+		localStorage.setItem('gen', 12)
+		history.push('/list');
+	}
+	const routeToGenSeven =()=>{
+		localStorage.setItem('gen', 16)
+		history.push('/list');
+	}
+	const routeToGenEight =()=>{
+		localStorage.setItem('gen', 18)
 		history.push('/list');
 	}
 	return (

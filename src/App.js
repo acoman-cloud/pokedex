@@ -8,6 +8,10 @@ import Home from './components/Home';
 
 function App() {
 
+  function nationalClick() {
+    localStorage.setItem('gen', 1)
+  }
+
   return (
     <Router>
     <div className="App">
@@ -18,7 +22,7 @@ function App() {
           <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/list' onClick={localStorage.setItem('gen', 0)}>National</Link>
+          <Link to='/list' onClick={nationalClick}>National</Link>
         </li>
       </ul>
       </header>

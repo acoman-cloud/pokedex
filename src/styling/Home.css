@@ -4,6 +4,7 @@ button{
 	border-radius: 25px;
 	margin: 5px;
 	font-size: 1.6rem;
+	cursor: pointer;
 }
 
 .nav{
